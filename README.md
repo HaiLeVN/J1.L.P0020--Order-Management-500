@@ -1,10 +1,10 @@
 # J1.L.P0020--Order-Management-500
 
-* Background *
+## Background 
 A glucosamine store needs an order management program with basic requirements such as creating 
 orders, displaying order information, updating information, etc. All of the information (products, customers, 
 orders) has been taken from the text files products.txt, customes.txt, and orders.txt as follows:
-* Program Specifications *
+## Program Specifications
 
 Build a Order Management program. With the following basic functions
 1. List all Products
