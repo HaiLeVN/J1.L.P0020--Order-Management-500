@@ -31,24 +31,6 @@ public class Utils {
         return result;
     }
 
-    public static String getString(String welcome, int minCharacter, int maxCharacter) {
-        boolean check = true;
-        String result = "";
-        do {
-            Scanner sc = new Scanner(System.in);
-            System.out.print(welcome);
-            result = sc.nextLine();
-            if (result.isEmpty()) {
-                System.out.println("Input text!!!");
-            } else if (result.length() < minCharacter || result.length() > maxCharacter) {
-                System.out.println("Your description must be above 3 and below 50 characters.");
-            } else {
-                check = false;
-            }
-        } while (check);
-        return result;
-    }
-
     public static String getString(String welcome, String formatter) {
         boolean check = true;
         String result = "";

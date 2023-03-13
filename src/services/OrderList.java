@@ -277,10 +277,10 @@ public class OrderList extends ArrayList<Order> {
             date = Utils.updateDate(" Old date: " + oldDate + ", Enter new date (MM/dd/yyyy): ", oldDate);
             
             oldCusID = ((Order) this.get(index)).getCustomerID();
-            cusID = Utils.updateString(" Old Customer ID: " + oldCusID + ", Enter new Customer ID (Cxxx): ", oldDate, "(?i)C\\d{3}");
+            cusID = Utils.updateString(" Old Customer ID: " + oldCusID + ", Enter new Customer ID (Cxxx): ", oldCusID, "(?i)C\\d{3}");
             
             oldProID = ((Order) this.get(index)).getProductID();
-            proID = Utils.updateString(" Old Product ID: " + oldProID + ", Enter new Product ID (Pxxx): ", oldDate, "(?i)P\\d{3}");
+            proID = Utils.updateString(" Old Product ID: " + oldProID + ", Enter new Product ID (Pxxx): ", oldProID, "(?i)P\\d{3}");
             
             oldStatus = ((Order) this.get(index)).isStatus();
             status = Utils.updateBoolean(" Old Status: " + oldStatus + ", Enter new Status (true/false): ", oldStatus);

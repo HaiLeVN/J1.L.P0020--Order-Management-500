@@ -85,28 +85,38 @@ public class OrderManagement {
                         Viewing SubMenu Update, instead creating a new class Update, it should be 
                         in this main menu to handle easily.
                     */
+                    boolean check2 = false;
                     int subChoice;
                     do {
                         System.out.println(" ===o=== || Update Order || ===o=== ");
                         System.out.println(" |  1 - Update Order information  | ");
                         System.out.println(" |  2 - Delete an Order           | ");
+                        System.out.println(" |  3 - Quit                      | ");
                         System.out.println(" ===o=== |================| ===o=== ");
-                        subChoice = Utils.getInt(" Input your choice: ", 1, 2);
+                        subChoice = Utils.getInt(" Input your choice: ", 1, 3);
                         switch (subChoice) {
                             case 1:
                                 ol.updateOrder();
+                                changed = true;
                                 break;
                             case 2:
                                 ol.deleteOrder();
+                                changed = true;
+                                break;
+                            case 3:
+                                check2 = true;
                                 break;
                         }
-                    } while (subChoice > 0 || subChoice <= 2);
+                    } while (subChoice > 0 && subChoice < 3 && !check2);
                     System.out.println("[!] Returned back to main menu.");
                     break;
                 case 11:
                     ol.writeFile();
                     break;
                 case 12:
+                    if(changed) {
+                        System.err.println("[!] Warning, it seems you changed a few data and have not saved yet!");
+                    }
                     check = menu.confirmYesNo(" Do you want to exit the program (Y/N)? ");
                     break;
             }

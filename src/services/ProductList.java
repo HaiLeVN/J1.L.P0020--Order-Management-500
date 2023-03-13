@@ -55,6 +55,8 @@ public class ProductList extends ArrayList<Product> {
                 double price = Double.parseDouble(info[4].trim());
                 this.add(new Product(id, name, unit, origin, price));
             }
+            br.close();
+            fr.close();
         } catch (IOException e) {
             System.out.println("[!] Cannot load products.txt file");
         }

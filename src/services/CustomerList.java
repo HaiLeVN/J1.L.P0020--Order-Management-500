@@ -150,6 +150,8 @@ public class CustomerList extends ArrayList<Customer> {
                     this.add(new Customer(id, name, address, num));
                 }
             }
+            br.close();
+            fr.close();
         } catch (IOException e) {
             System.out.println("[!] Cannot load the customers.txt file.");
         }
@@ -172,6 +174,8 @@ public class CustomerList extends ArrayList<Customer> {
                     System.out.print(cs.toString());
                 }
             }
+            br.close();
+            fr.close();
         } catch (IOException e) {
             System.out.println("[!] Error to read customers.txt file");
         }
