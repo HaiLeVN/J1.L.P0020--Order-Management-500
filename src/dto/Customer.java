@@ -21,6 +21,18 @@ public class Customer {
         this.customerAddress = customerAddress;
         this.customerPhone = customerPhone;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Customer) {
+            Customer other = (Customer) o;
+            return this.customerID.equals(other.customerID);
+        }
+        return false;
+    }
+
+    public Customer(String id) {
+        this.customerID = id;
+    }
 
     public String getCustomerID() {
         return customerID;

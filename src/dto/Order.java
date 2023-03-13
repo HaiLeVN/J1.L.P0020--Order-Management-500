@@ -27,6 +27,19 @@ public class Order {
         this.productID = productID;
     }
 
+    public Order(String id) {
+        this.orderID = id;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Order) {
+            Order other = (Order) o;
+            return this.orderID.equals(other.orderID);
+        }
+        return false;
+    }
+
     public String getOrderID() {
         return orderID;
     }

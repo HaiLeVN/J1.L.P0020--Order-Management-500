@@ -20,8 +20,13 @@ import utils.Utils;
 public class ProductList extends ArrayList<Product> {
     
     private final String FILEPATH = "src/info/products.txt";
+    
     public ProductList() {
         loadProductFomFile();
+    }
+    
+    public ArrayList<Product> getProduct() {
+        return this;
     }
     
     public Product search(String id){
@@ -51,12 +56,11 @@ public class ProductList extends ArrayList<Product> {
                 this.add(new Product(id, name, unit, origin, price));
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("[!] Cannot load products.txt file");
         }
     }
 
     public void listAllProduct() {
-        ArrayList<Product> printList = new ArrayList<>();
         try {
             File f = new File(FILEPATH);
             FileReader fr = new FileReader(f);
@@ -69,14 +73,12 @@ public class ProductList extends ArrayList<Product> {
                 String unit = info[2].trim();
                 String origin = info[3].trim();
                 double price = Double.parseDouble(info[4].trim());
-                printList.add(new Product(id, name, unit, origin, price));
-            }
-            for(Product p : printList) {
+                Product p = new Product(id, name, unit, origin, price);
                 System.out.print(p.toString());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("[!] Cannot read products.txt file");
         }
-        Utils.getString("Press 'Enter' key to return to main menu.");
+        Utils.exitMenu("Press 'Enter' key to return to main menu.");
     }
 }

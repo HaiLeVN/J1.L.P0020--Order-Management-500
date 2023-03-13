@@ -23,6 +23,15 @@ public class Product {
         this.origin = origin;
         this.price = price;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Product) {
+            Product other = (Product) o;
+            return this.productID.equals(other.productID);
+        }
+        return false;
+    }
 
     public String getProductID() {
         return productID;

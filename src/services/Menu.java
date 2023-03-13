@@ -24,7 +24,7 @@ public class Menu extends ArrayList<String> implements I_Menu {
     @Override
     public int getChoice() {
         int result = -1;
-        result = Utils.getInt("Input your choice:", 1, 12);
+        result = Utils.getInt("Input your choice: ", 1, 12);
         return result;
     }
 

@@ -6,11 +6,11 @@
 package view;
 
 import dto.I_Menu;
-import dto.I_SubMenu;
 import services.CustomerList;
 import services.Menu;
+import services.OrderList;
 import services.ProductList;
-import services.Update;
+import utils.Utils;
 
 /**
  *
@@ -34,6 +34,7 @@ public class OrderManagement {
         menu.addItem("12. Quit");
         ProductList pl = new ProductList();
         CustomerList cl = new CustomerList();
+        OrderList ol = new OrderList();
         int choice;
         boolean changed = false;
         boolean check = false;
@@ -56,37 +57,60 @@ public class OrderManagement {
                     changed = false;
                     break;
                 case 4:
-                    
-                    changed = false;
+                    cl.addCustomer();
+                    changed = true;
                     break;
                 case 5:
-                    
-                    changed = false;
+                    cl.update();
+                    changed = true;
                     break;
                 case 6:
-                    
+                    cl.writeFile();
+                    changed = false;
                     break;
                 case 7:
-                    
+                    ol.listAllOrders();
                     changed = false;
                     break;
                 case 8:
-                    
-                    changed = true;
+                    ol.printPendingOrder();
+                    changed = false;
                     break;
                 case 9:
-                    
+                    ol.addOrder();
+                    changed = true;
                     break;
                 case 10:
-                    
+                    /* 
+                        Viewing SubMenu Update, instead creating a new class Update, it should be 
+                        in this main menu to handle easily.
+                    */
+                    int subChoice;
+                    do {
+                        System.out.println(" ===o=== || Update Order || ===o=== ");
+                        System.out.println(" |  1 - Update Order information  | ");
+                        System.out.println(" |  2 - Delete an Order           | ");
+                        System.out.println(" ===o=== |================| ===o=== ");
+                        subChoice = Utils.getInt(" Input your choice: ", 1, 2);
+                        switch (subChoice) {
+                            case 1:
+                                ol.updateOrder();
+                                break;
+                            case 2:
+                                ol.deleteOrder();
+                                break;
+                        }
+                    } while (subChoice > 0 || subChoice <= 2);
+                    System.out.println("[!] Returned back to main menu.");
                     break;
                 case 11:
-                    
+                    ol.writeFile();
                     break;
                 case 12:
+                    check = menu.confirmYesNo(" Do you want to exit the program (Y/N)? ");
                     break;
             }
-        } while (choice >= 0 && choice <= 10 && !check);
+        } while (choice >= 0 && choice <= 12 && !check);
         System.out.println("Good bye!");
     }
 }
