@@ -1,4 +1,4 @@
-# J1.L.P0020--Order-Management-500
+# J1.L.P0020--Order-Management-500 (COMPLETED)
 
 ## Background 
 A glucosamine store needs an order management program with basic requirements such as creating 
